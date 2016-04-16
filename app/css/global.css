@@ -1,0 +1,34 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: auto;
+}
+
+body {
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-scrolling: touch;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+#content {
+    transform: translate3d(0, 0, 0);
+}
+
+a {
+    text-decoration: none;
+}

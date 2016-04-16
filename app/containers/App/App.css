@@ -1,0 +1,10 @@
+@import '../../css/normalise.css';
+@import '../../css/global.css';
+
+.app {
+	min-height: 100%;
+}
+
+.main {
+	margin: 0 auto;
+}

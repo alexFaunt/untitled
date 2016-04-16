@@ -1,0 +1,8 @@
+@value max-content-width as max-width from '../../css/layout.css';
+
+.content {
+	max-width: max-width;
+	margin: 0 auto;
+	position: relative;
+	padding: 20px 0;
+}
