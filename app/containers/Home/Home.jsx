@@ -5,6 +5,11 @@ export default function Home () {
 	return (
 		<div className={ style.home }>
 			Home page!
+
+			TODO
+			Redux dev tools
+			Rebuilding server / client
+			Menu overlay
 		</div>
 	);
 }

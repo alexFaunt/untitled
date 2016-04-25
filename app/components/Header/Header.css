@@ -1,19 +1,19 @@
 @value height: 50px;
 @value font-size: 2em;
 
-.base {
+.header {
 	position: relative;
 	box-shadow: 0 1px 4px -2px black;
 
-    > * {
-        height: height;
-        line-height: height;
-    }
+	> * {
+		height: height;
+		line-height: height;
+	}
 }
 
 .title {
-    text-align: center;
-    font-size: font-size;
+	text-align: center;
+	font-size: font-size;
 	width: 100%;
 	margin: 0;
 }

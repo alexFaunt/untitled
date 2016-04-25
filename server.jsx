@@ -12,17 +12,10 @@ import getRoutes from './app/routes.jsx';
 import fs from 'fs';
 import path from 'path';
 
-// TODO - env vars
-const PORT = 8080;
+import config from './server.config.js';
+import StatusCodes from './shared/constants/StatusCodes.js';
 
 const HTML = fs.readFileSync(path.join(__dirname, './app/index.html'), { encoding: 'utf-8' });
-
-// TODO - externalise
-const STATUS = {
-	OK: 200,
-	ERROR: 500,
-	REDIRECT: 302
-};
 
 const app = express();
 
@@ -38,10 +31,10 @@ app.use((req, res) => {
 
 	match({ history, routes, location: req.url }, (error, redirectLocation, renderProps) => {
 		if (error) {
-			res.status(STATUS.ERROR).send(error.message);
+			res.status(StatusCodes.ERROR).send(error.message);
 		}
 		else if (redirectLocation) {
-			res.redirect(STATUS.REDIRECT, redirectLocation.pathname + redirectLocation.search);
+			res.redirect(StatusCodes.REDIRECT, redirectLocation.pathname + redirectLocation.search);
 		}
 		else if (renderProps) {
 			const content = renderToString(
@@ -54,11 +47,11 @@ app.use((req, res) => {
 				.replace(/__content__/, content)
 				.replace(/__state__/, JSON.stringify(store.getState()));
 
-			return res.status(STATUS.OK).send(payload);
+			return res.status(StatusCodes.OK).send(payload);
 		}
 	});
 });
 
-app.listen(PORT, () => {
+app.listen(config.port, () => {
 	console.log('ITS HAPPENING.'); // eslint-disable-line
 });

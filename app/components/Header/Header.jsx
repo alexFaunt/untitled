@@ -3,17 +3,26 @@ import { lexums } from '../../../content';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
-// import { openMenu } from '../../actions/menuActions';
+import { showOverlay } from '../../actions/overlayActions';
 
-// @connect(() => ({}), openMenu)
+import Menu from '../Menu/Menu.jsx';
+
+@connect(() => ({}), { showOverlay })
 export default class Header extends Component {
-  render () {
-	  // <div className={ styles.left } key="menu" onClick={ this.props.openMenu }>MENU BUTTON</div>
-	return (
-		<header className={ styles.header }>
-			<h1 key="title" className={ styles.title }>{ lexums.title }</h1>
-		</header>
-	);
-  }
+
+	openMenu = (e) => {
+		e.preventDefault();
+		this.props.showOverlay(<Menu />);
+	}
+
+	render () {
+		return (
+			<header className={ styles.header }>
+				<Link to="/menu" className={ `${ styles.left } ${ styles.button }` } onClick={ this.openMenu }>MENU</Link>
+				<h1 className={ styles.title }>{ lexums.title }</h1>
+			</header>
+		);
+	}
 }

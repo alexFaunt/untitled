@@ -465,19 +465,19 @@ a {
 .App__main___V1Wiz {
 	margin: 0 auto;
 }
-.Header__base___xPMDi {
+.Header__header___7Qyqf {
 	position: relative;
 	box-shadow: 0 1px 4px -2px black;
 }
 
-.Header__base___xPMDi > * {
+.Header__header___7Qyqf > * {
 	height: 50px;
 	line-height: 50px;
 }
 
 .Header__title___2To0z {
-    text-align: center;
-    font-size: 2em;
+	text-align: center;
+	font-size: 2em;
 	width: 100%;
 	margin: 0;
 }
@@ -498,6 +498,8 @@ a {
 	height: 100%;
 	top: 0;
 	right: 0;
+}
+.Menu__menu___28l1E {
 }
 
 .Footer__footer___1ekoh {
@@ -526,7 +528,26 @@ a {
 	position: relative;
 	padding: 20px 0;
 }
-.Overlay__base___1BsGt {
+
+.Overlay__overlay___2a4HK {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	-webkit-transform: translateY(-100%);
+	        transform: translateY(-100%);
+
+	background: white;
+
+	-webkit-transition: all 0.3s ease-in-out;
+
+	transition: all 0.3s ease-in-out;
+}
+
+.Overlay__shown___3TBCN {
+	-webkit-transform: translateY(0);
+	        transform: translateY(0);
 }
 
 .Home__home___3zAcx {
@@ -534,5 +555,3 @@ a {
 
 .Login__login___3XRx1 {
 }
-
-/*# sourceMappingURL=bundle.css.map*/

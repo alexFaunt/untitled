@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "axios": "^0.10.0",
     "babel": "^6.5.2",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
@@ -26,6 +27,7 @@
     "eslint": "^2.7.0",
     "eslint-plugin-react": "^4.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "morph": "^0.2.0",
     "postcss-calc": "^5.2.1",
     "postcss-for": "^2.0.1",
     "postcss-inline-comment": "^2.0.0",
