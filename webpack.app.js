@@ -13,7 +13,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.jsx$/,
+				test: /\.js/,
 				loader: 'babel',
 				exclude: /node_modules/,
 				query: {
@@ -53,5 +53,5 @@ module.exports = {
 		"React": "react"
 	},
 
-	devtool: '#source-map'
+	devtool: 'source-map'
 };

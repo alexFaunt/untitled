@@ -1,7 +1,7 @@
 import apiService from '../services/apiService';
-import { PENDING, SUCCESS, FAILURE } from '../../shared/constants/ApiConstants.js';
+import { PENDING, SUCCESS, FAILURE } from '../../shared/constants/RequestConstants.js';
 
-export default (/* store */) => (next) => (action) => {
+export default () => (next) => (action) => {
 	const { api, type, ...rest } = action;
 
 	// api = {

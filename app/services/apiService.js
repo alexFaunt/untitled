@@ -1,4 +1,4 @@
-import config from '../../server.config.js';
+import config from '../../server/config.js';
 import axios from 'axios';
 import { toCamel } from 'morph';
 

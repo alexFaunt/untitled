@@ -12,8 +12,12 @@ import getRoutes from './app/routes.jsx';
 import fs from 'fs';
 import path from 'path';
 
-import config from './server.config.js';
+import config from './server/config.js';
 import StatusCodes from './shared/constants/StatusCodes.js';
+
+import bodyParser from 'body-parser';
+
+import apiHandler from './server/handlers/apiHandler.js';
 
 const HTML = fs.readFileSync(path.join(__dirname, './app/index.html'), { encoding: 'utf-8' });
 
@@ -21,6 +25,8 @@ const app = express();
 
 app.use('/static', express.static(path.join(__dirname, './static')));
 app.use('/build', express.static(path.join(__dirname, './build')));
+
+app.post('/api', bodyParser.text({ type: 'application/graphql' }), apiHandler);
 
 app.use((req, res) => {
 	const memoryHistory = createMemoryHistory(req.url);
