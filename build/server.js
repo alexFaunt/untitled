@@ -8218,13 +8218,11 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-	exports.default = {
-		OK: 200,
-		ERROR: 500,
-		REDIRECT: 302
-	};
+	var OK = exports.OK = 200;
+	var ERROR = exports.ERROR = 500;
+	var REDIRECT = exports.REDIRECT = 302;
 
 /***/ },
 /* 94 */
@@ -9522,8 +9520,6 @@
 
 	var _StatusCodes = __webpack_require__(93);
 
-	var _StatusCodes2 = _interopRequireDefault(_StatusCodes);
-
 	var _bodyParser = __webpack_require__(95);
 
 	var _bodyParser2 = _interopRequireDefault(_bodyParser);
@@ -9552,9 +9548,9 @@
 
 		(0, _reactRouter.match)({ history: history, routes: routes, location: req.url }, function (error, redirectLocation, renderProps) {
 			if (error) {
-				res.status(_StatusCodes2.default.ERROR).send(error.message);
+				res.status(_StatusCodes.ERROR).send(error.message);
 			} else if (redirectLocation) {
-				res.redirect(_StatusCodes2.default.REDIRECT, redirectLocation.pathname + redirectLocation.search);
+				res.redirect(_StatusCodes.REDIRECT, redirectLocation.pathname + redirectLocation.search);
 			} else if (renderProps) {
 				var content = (0, _server.renderToString)(_react2.default.createElement(
 					_reactRedux.Provider,
@@ -9564,7 +9560,7 @@
 
 				var payload = HTML.replace(/__content__/, content).replace(/__state__/, JSON.stringify(store.getState()));
 
-				return res.status(_StatusCodes2.default.OK).send(payload);
+				return res.status(_StatusCodes.OK).send(payload);
 			}
 		});
 	});

@@ -1,5 +1,3 @@
-export default {
-	OK: 200,
-	ERROR: 500,
-	REDIRECT: 302
-};
+export const OK = 200;
+export const ERROR = 500;
+export const REDIRECT = 302;

@@ -13,7 +13,7 @@ import fs from 'fs';
 import path from 'path';
 
 import config from './server/config.js';
-import StatusCodes from './shared/constants/StatusCodes.js';
+import { OK, ERROR, REDIRECT } from './shared/constants/StatusCodes.js';
 
 import bodyParser from 'body-parser';
 
@@ -37,10 +37,10 @@ app.use((req, res) => {
 
 	match({ history, routes, location: req.url }, (error, redirectLocation, renderProps) => {
 		if (error) {
-			res.status(StatusCodes.ERROR).send(error.message);
+			res.status(ERROR).send(error.message);
 		}
 		else if (redirectLocation) {
-			res.redirect(StatusCodes.REDIRECT, redirectLocation.pathname + redirectLocation.search);
+			res.redirect(REDIRECT, redirectLocation.pathname + redirectLocation.search);
 		}
 		else if (renderProps) {
 			const content = renderToString(
@@ -53,7 +53,7 @@ app.use((req, res) => {
 				.replace(/__content__/, content)
 				.replace(/__state__/, JSON.stringify(store.getState()));
 
-			return res.status(StatusCodes.OK).send(payload);
+			return res.status(OK).send(payload);
 		}
 	});
 });
